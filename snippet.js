@@ -57,11 +57,13 @@ function animate(_id) {
           console.log(timestamp);
           start = timestamp;
       }
-      progress = easing.Elastic((timestamp - start) / 1000);
-      d.style.top = progress + "px";
-      if (progress < 500 ) {
+      setTimeout(function() {
+        progress = easing.Elastic((timestamp - start) / 1000);
+        d.style.top = progress + "px";
+        if (progress < 500 ) {
           requestAnimationFrame(step);
-      }
+        }
+      }, 20);
   };
 
   requestAnimationFrame(step);
